@@ -10,8 +10,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'meetup',
+      component: () =>
+        import(/* webpackChunkName: "about" */ './views/MeetupAuth.vue'),
     },
     {
       path: '/about',
@@ -21,6 +22,23 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ './views/About.vue'),
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/foursquareauth',
+      name: 'about',
+      component: () =>
+        import(/* webpackChunkName: "about" */ './views/FourSquare.vue'),
+    },
+    {
+      path: '/meetupauth',
+      name: 'meetup',
+      component: () =>
+        import(/* webpackChunkName: "about" */ './views/MeetupAuth.vue'),
     },
   ],
 });
